@@ -1,7 +1,7 @@
 FROM debian:oldstable
 
-RUN apt-get update
+RUN apt-get update -y
 
 EXPOSE 443
 
-CMD ["wordpress", "-g", "daemon off;"]
+# CMD ["wordpress"]
