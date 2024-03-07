@@ -3,9 +3,6 @@ NAME = inception
 build: 
 	docker-compose -f srcs/docker-compose.yml up --build -d
 
-down: 
-	docker-compose -f srcs/docker-compose.yml down
-
 start: 
 	docker-compose -f srcs/docker-compose.yml start
 
@@ -26,16 +23,6 @@ re: fclean build
 info:
 	@echo "Containers:"
 	@docker ps -a
-	@echo "------------------------------------------------------------"
-	@echo "Images:"
-	@docker images -a
-	@echo "------------------------------------------------------------"
-	@echo "Volumes:"
-	@docker volume ls
-	@echo "------------------------------------------------------------"
-	@echo "Networks:"
-	@docker network ls
-	@echo "------------------------------------------------------------"
 
 connect-mariadb:
 	docker exec -it mariadb mysql -u root -p

@@ -1,7 +1,11 @@
 FROM debian:oldstable
 
-RUN apt-get update -y
+RUN apt-get update -y && \
+	apt-get install mariadb-server -y && \
+	rm -rf /var/lib/apt/lists/*
 
-EXPOSE 443
+COPY tools/start.sh .
 
-# CMD ["mariadb"]
+EXPOSE 3306
+
+CMD ["bash", "start.sh"]
