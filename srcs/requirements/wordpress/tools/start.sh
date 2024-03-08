@@ -1,6 +1,6 @@
 mkdir -p /var/run/
 mkdir -p /run/php/
-curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 chmod +x wp-cli.phar
 mv wp-cli.phar /usr/local/bin/wp
 
@@ -20,7 +20,7 @@ echo "WP_USER_PASSWORD: $WP_USER_PASSWORD"
 echo "---------------------------------"
 
 
-if [ ! -f /var/www/html/wp-config.php ]; then
+if [! -f /var/www/html/wp-config.php ]; then
 	
 	cd /var/www/html/
 	mv 	/wp-config.php /var/www/html/
