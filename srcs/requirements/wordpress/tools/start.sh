@@ -3,25 +3,10 @@ mkdir -p /run/php/
 wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 chmod +x wp-cli.phar
 mv wp-cli.phar /usr/local/bin/wp
-
 sed -ie "s/listen = \/run\/php\/php7.4-fpm.sock/listen = 0.0.0.0:9000/" /etc/php/7.4/fpm/pool.d/www.conf
-echo "---------------------------------"
-wall " Printing the environment variables"
-echo "MYSQL_DATABASE: $MYSQL_DATABASE"
-echo "MYSQL_USER: $MYSQL_USER"
-echo "MYSQL_PASSWORD: $MYSQL_PASSWORD"
-echo "DB_HOST: $DB_HOST"
-echo "WP_URL: $WP_URL"
-echo "WP_TITLE: $WP_TITLE"
-echo "WP_ADMIN: $WP_ADMIN"
-echo "WP_ADMIN_PASSWORD: $WP_ADMIN_PASSWORD"
-echo "WP_USER: $WP_USER"
-echo "WP_USER_PASSWORD: $WP_USER_PASSWORD"
-echo "---------------------------------"
-
-
-if [! -f /var/www/html/wp-config.php ]; then
-	
+touch a
+if [ ! -f /var/www/html/wp-config.php ]; then
+	touch b
 	cd /var/www/html/
 	mv 	/wp-config.php /var/www/html/
 
@@ -40,6 +25,4 @@ if [! -f /var/www/html/wp-config.php ]; then
 
 	chown -R www-data:www-data /var/www/html/wp-content
 fi
-
-
 exec /usr/sbin/php-fpm7.4 -F

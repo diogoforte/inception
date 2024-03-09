@@ -14,7 +14,7 @@ RUN     apt update && \
 
 COPY	tools/start.sh /
 COPY	conf/www.conf /etc/php/7.4/fpm/pool.debian
-COPY 	conf/wp-config.php .
+COPY 	conf/wp-config.php /
 RUN		chmod 777 start.sh
 
 EXPOSE 9000

@@ -12,6 +12,7 @@ mysql_install_db
 service mariadb start
 #This includes setting the root password, removing anonymous users, disallowing root login remotely, and removing the test database.
 mysql_secure_installation << EOF
+
 n
 Y
 $MYSQL_ROOT_PASSWORD
