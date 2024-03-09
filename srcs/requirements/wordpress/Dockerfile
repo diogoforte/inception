@@ -1,7 +1,7 @@
 FROM debian:oldstable
 
-RUN     apt update && \
-		apt install -y  \
+RUN     apt-get update && \
+		apt-get install -y  \
 		php php-mysql \
 		php-fpm php-curl \
 		php-gd php-intl \
@@ -10,12 +10,13 @@ RUN     apt update && \
 		php-zip mariadb-server \
 		mariadb-client wget && \
 		rm -rf /var/lib/apt/lists/* && \
-		mkdir -p /var/www/html
+		mkdir -p /var/www/html && \
+		mkdir -p /run/php/ && \
+		mkdir -p /var/run/
 
 COPY	tools/start.sh /
 COPY	conf/www.conf /etc/php/7.4/fpm/pool.debian
 COPY 	conf/wp-config.php /
-RUN		chmod 777 start.sh
 
 EXPOSE 9000
 
