@@ -32,4 +32,3 @@ service mariadb stop
 fi
 # Replace current shell process to mysqld_safe and accept connections from all
 exec mysqld_safe --bind-address=0.0.0.0
-#if the exit status is diferent than 0, the container should keep running by using the command "tail -f /dev/null"

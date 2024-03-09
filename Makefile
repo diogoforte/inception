@@ -31,3 +31,5 @@ connect-wordpress:
 	docker exec -it wordpress /bin/bash
 
 .PHONY: build up down clean fclean re info connect
+
+# echo "127.0.0.1 dinunes-.42.fr" >> /etc/hosts
